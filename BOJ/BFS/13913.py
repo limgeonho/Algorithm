@@ -1,24 +1,29 @@
 from collections import deque
-n, m=map(int, input().split())
-Q=deque()
-MAX=100000
-dis=[0]*MAX
-ch=[0]*MAX
-ans=[]
-Q.append(n)
-ch[n]=1
-dis[n]=0
-while Q:
-    now=Q.popleft()
-    if now==m:
-        break
-    for next in(now+1, now-1, 2*now):
-        if 0<=n<=MAX:
-            if ch[next]==0:
-                Q.append(next)
-                ch[next]=1
-                dis[next]=dis[now]+1
-print(dis[m])
-for i in range(MAX):
-    if ch[i]==1:
-        print(i, end=' ')
+
+def path(x):
+    arr = []
+    temp = x
+    for _ in range(dist[x]+1):
+        arr.append(temp)
+        temp = move[temp]
+    print(' '.join(map(str, arr[::-1])))
+
+def bfs():
+    q = deque()
+    q.append(N)
+    while q:
+        x = q.popleft()
+        if x == K:
+            print(dist[x])
+            path(x)
+            return x
+        for i in (x+1, x-1, 2*x):
+            if 0<=i<=100000 and dist[i]==0:
+                q.append(i)
+                dist[i] = dist[x] + 1
+                move[i] = x
+
+N, K = map(int, input().split())
+dist = [0]*100001
+move = [0]*100001
+bfs()
