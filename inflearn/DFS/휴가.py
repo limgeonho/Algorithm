@@ -9,7 +9,6 @@ def DFS(L, sum):
             DFS(L+ti[L], sum+pi[L])
         DFS(L+1, sum)    
 
-
 n = input()
 ti = list()
 pi = list()
