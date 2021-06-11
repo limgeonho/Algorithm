@@ -23,7 +23,7 @@ while True:
             y=tmp[1]+dy[j]
             if ch[x][y]==0:
                 sum+=a[x][y]
-                ch[x][y]
+                ch[x][y] = 1
                 Q.append((x, y))
     L+=1
 print(sum)
