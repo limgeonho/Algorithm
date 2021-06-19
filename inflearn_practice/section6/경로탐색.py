@@ -18,6 +18,7 @@ def DFS(v):
                 ch[i] = 0
 n, m = map(int, input().split())
 
+
 g = [[0] * (n+1) for _ in range(n+1)]
 ch = [0] * (n+1)
 for i in range(m):
